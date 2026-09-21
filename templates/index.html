@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>整理番号確認システム</title>
+    <meta name="description" content="現在呼び出し中の整理番号を確認できます。">
+    <link rel="icon" type="image/png" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="mui-container">
+        <header class="mui-appbar">
+            <div class="mui-appbar-content">
+                <h1>整理番号確認システム</h1>
+                <div class="mui-toolbar-right">
+                    <span id="last-update-time">リアルタイム接続中</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="mui-content">
+            <section class="number-section current-section">
+                <div class="mui-panel">
+                    <h2 class="section-title">現在呼び出し中の番号</h2>
+                    <div class="number-container" id="current-numbers">
+                        <div class="loading">読み込み中...</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="number-section waiting-section">
+                <div class="mui-panel">
+                    <h2 class="section-title">待機中の番号</h2>
+                    <div class="category-tabs" id="waiting-categories">
+                        <div class="loading">読み込み中...</div>
+                    </div>
+                    <div class="debug-info" id="debug-info"></div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <div class="mui-panel">
+                    <h2 class="section-title">情報</h2>
+                    <div class="info-buttons">
+                        <button class="mui-btn mui-btn--primary info-btn" id="about-btn">
+                            <span class="material-icons">info</span> このサイトについて
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="mui-footer">
+            <p>&copy; 2026 整理番号確認システム</p>
+        </footer>
+    </div>
+
+    <div class="popup-overlay" id="about-popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>このサイトについて</h3>
+                <button class="popup-close">&times;</button>
+            </div>
+            <div class="popup-body">
+                <p class="popup-description">
+                    このサイトは整理番号確認システムです、数字が2~3個前になったら、お早めに出店ブースまでお越しください。</p>
+                <div id="popup-categories-desc"></div>
+                <div class="popup-footer">
+                    <p>© 2026 kinoko2k/tickets-system-v1</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
+

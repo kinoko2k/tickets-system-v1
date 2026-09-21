@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理画面 - 整理番号確認システム</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body>
+    <div class="mui-container">
+        <header class="mui-appbar">
+            <div class="mui-appbar-content">
+                <h1>整理番号管理システム</h1>
+                <div class="mui-toolbar-right">
+                    <a href="/" class="mui-btn mui-btn--small mui-btn--flat" target="_blank" style="color: white; border: 1px solid white;">表示画面を確認</a>
+                    <form action="/admin/logout" method="POST" style="display:inline;">
+                        <button type="submit" class="mui-btn mui-btn--small mui-btn--flat" style="color: white; border: 1px solid white; margin-left: 8px;">ログアウト</button>
+                    </form>
+                </div>
+            </div>
+        </header>
+
+        <main class="mui-content admin-content">
+            <div class="mui-row">
+                <div class="mui-col-md-6">
+                    <div class="mui-panel">
+                        <h2 class="section-title">現在呼び出し中の番号</h2>
+                        <div class="admin-form">
+                            <div class="mui-textfield">
+                                <input type="number" id="calling-number-input" min="1" placeholder=" ">
+                                <label>番号を入力</label>
+                            </div>
+                            <button id="add-calling-btn" class="mui-btn mui-btn--primary mui-btn--raised">
+                                <span class="material-icons">add</span> 追加
+                            </button>
+                        </div>
+
+                        <div class="current-list-container" id="admin-current-numbers">
+                            <div class="loading">読み込み中...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mui-col-md-6">
+                    <div class="mui-panel">
+                        <h2 class="section-title">待機中の番号</h2>
+                        <div class="admin-counter">現在の待機数: <span id="waiting-count">0</span></div>
+
+                        <div class="admin-form">
+                            <div class="mui-textfield">
+                                <input type="number" id="waiting-number-input" min="1" placeholder=" ">
+                                <label>待機番号の追加</label>
+                            </div>
+                            <button id="add-waiting-btn" class="mui-btn mui-btn--primary mui-btn--raised">
+                                <span class="material-icons">add</span> 追加
+                            </button>
+                        </div>
+
+                        <div class="waiting-list-container" id="admin-waiting-numbers">
+                            <div class="loading">読み込み中...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-actions">
+                <button id="call-next-btn" class="mui-btn mui-btn--primary mui-btn--raised">
+                    <span class="material-icons">arrow_forward</span> 次の番号を呼び出す
+                </button>
+                <button id="clear-current-btn" class="mui-btn mui-btn--danger mui-btn--raised">
+                    <span class="material-icons">clear_all</span> 呼び出し中をクリア
+                </button>
+            </div>
+        </main>
+
+        <footer class="mui-footer">
+            <p>&copy; 2026 整理番号確認システム - kinoko2k/tickets-system-v1</p>
+        </footer>
+    </div>
+    <script src="/static/js/admin.js"></script>
+</body>
+</html>
